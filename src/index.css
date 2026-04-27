@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CineVerse — Premium Dark Cinematic Design System
+   All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Deep cinema black with subtle warmth */
+    --background: 0 0% 4%;
+    --foreground: 40 25% 96%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 40 25% 96%;
+
+    --popover: 0 0% 6%;
+    --popover-foreground: 40 25% 96%;
+
+    /* Gold/amber primary — the cinematic accent */
+    --primary: 42 88% 58%;
+    --primary-foreground: 0 0% 6%;
+    --primary-glow: 42 100% 70%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 40 25% 96%;
+
+    --muted: 0 0% 11%;
+    --muted-foreground: 40 8% 60%;
+
+    --accent: 14 88% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 14%;
+    --input: 0 0% 12%;
+    --ring: 42 88% 58%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(42 88% 58%), hsl(35 95% 50%));
+    --gradient-hero: linear-gradient(180deg, transparent 0%, hsl(0 0% 4% / 0.4) 50%, hsl(0 0% 4%) 100%);
+    --gradient-hero-side: linear-gradient(90deg, hsl(0 0% 4%) 0%, hsl(0 0% 4% / 0.85) 40%, transparent 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 9%) 0%, hsl(0 0% 5%) 100%);
+    --gradient-glow: radial-gradient(ellipse at center, hsl(42 88% 58% / 0.18), transparent 70%);
+
+    /* Shadows */
+    --shadow-poster: 0 20px 50px -15px hsl(0 0% 0% / 0.8);
+    --shadow-gold: 0 10px 40px -10px hsl(42 88% 58% / 0.45);
+    --shadow-elevated: 0 30px 80px -20px hsl(0 0% 0% / 0.9);
+
+    /* Motion */
+    --ease-cinema: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.3);
+    color: hsl(var(--foreground));
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.6);
+  }
+}
+
+@layer components {
+  .text-display {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.02em;
+  }
+
+  .rail-scroll {
+    scrollbar-width: none;
+  }
+  .rail-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gradient-text-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
